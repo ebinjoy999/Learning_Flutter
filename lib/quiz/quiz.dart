@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import './question.dart';
-import './answer.dart';
+import 'question.dart';
+import 'answer.dart';
 
 class Quiz extends StatelessWidget {
 
