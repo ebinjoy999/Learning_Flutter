@@ -8,7 +8,7 @@ class Quiz extends StatelessWidget {
   final Function answerQuestion;
   final int questionIndex;
 
-  Quiz({@required this.questions,
+  Quiz( {@required this.questions,
     @required this.answerQuestion,
     @required this.questionIndex});
 
@@ -17,9 +17,9 @@ class Quiz extends StatelessWidget {
     return Column(
       children: <Widget>[
         Question(questions[questionIndex]['questionText']),
-        ...(questions[questionIndex]['answers'] as List<String>)
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
             .map((answer) {
-          return Answer(answerQuestion, answer);
+          return Answer(() => answerQuestion(answer['score']) , answer);
         }).toList()
       ],
     );
