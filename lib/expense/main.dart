@@ -7,6 +7,9 @@ void main() => runApp(MyClass());
 
 class MyClass extends StatelessWidget {
 
+  //String titleInput, amountInupt;
+  final textAmountController = TextEditingController(),
+      textTitleController = TextEditingController();
   final List<Transaction> transactions = [
     Transaction(dateTime: DateTime.now(),amount: 20.01,id:'t1', title: 'Lime'),
     Transaction(dateTime: DateTime.now(),amount: 33.33,id:'t2', title: 'Sanitiser'),
@@ -37,12 +40,22 @@ class MyClass extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                  TextField(decoration: InputDecoration(labelText: 'Title' ),),
-                  TextField(decoration: InputDecoration(labelText: 'Amount' ),),
+                  TextField(
+                   decoration: InputDecoration(labelText: 'Title' ),
+                   controller: textTitleController,
+                   //onChanged: (value) => { titleInput = value},
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount' ),
+                      controller: textAmountController,
+                      //onChanged: (value) => { amountInupt = value},
+                  ),
                   FlatButton(
                     textColor: Colors.red,
                     child: Text('Add Transaction'),
-                    onPressed: (){},
+                    onPressed: (){
+
+                    },
                   )
                 ],),
               ),),
