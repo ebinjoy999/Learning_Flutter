@@ -16,11 +16,11 @@ class MyClass extends StatefulWidget {
 class _MyClassState extends State<MyClass> {
 
   List<Transaction> _transactions = [
-    Transaction(dateTime: DateTime.now(),amount: 20.01,id:'t1', title: 'Lime'),
-    Transaction(dateTime: DateTime.now(),amount: 33.33,id:'t2', title: 'Sanitiser'),
-    Transaction(dateTime: DateTime.now(),amount: 66.22,id:'t3', title: 'Soap'),
-    Transaction(dateTime: DateTime.now(),amount: 43.11,id:'t4', title: 'Rice'),
-    Transaction(dateTime: DateTime.now(),amount: 55.22,id:'t5', title: 'Electricity bill')
+//    Transaction(dateTime: DateTime.now(),amount: 20.01,id:'t1', title: 'Lime'),
+//    Transaction(dateTime: DateTime.now(),amount: 33.33,id:'t2', title: 'Sanitiser'),
+//    Transaction(dateTime: DateTime.now(),amount: 66.22,id:'t3', title: 'Soap'),
+//    Transaction(dateTime: DateTime.now(),amount: 43.11,id:'t4', title: 'Rice'),
+//    Transaction(dateTime: DateTime.now(),amount: 55.22,id:'t5', title: 'Electricity bill')
   ];
 
   @override
