@@ -29,9 +29,33 @@ class _MyClassState extends State<MyClass> {
     return new MediaQuery(
         data: new MediaQueryData(),
         child: new MaterialApp(
+            theme: ThemeData(
+              primarySwatch:  Colors.purple, //over primaryColor swatches will generate diff shades
+              accentColor: Colors.amberAccent,
+              fontFamily: 'Quicksand',
+              textTheme: ThemeData.light().textTheme //basic texttheme + our overridden style
+                  .copyWith(title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold
+              ),
+              ),
+              appBarTheme: AppBarTheme(
+                textTheme: ThemeData.light().textTheme //basic texttheme + our overridden style
+                    .copyWith(title: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                ),
+                ),
+              )
+            ),
             home: Scaffold(
               appBar: AppBar(
-                title: Text("Secound app"),
+                title: Text(
+                    "Personal expenses",
+                    style: TextStyle(fontFamily: 'OpenSans'), //or we can set theme to apply all pages under Theme data
+                ),
                 actions: <Widget>[
                   Builder(builder: (context) =>
                       IconButton(
@@ -64,7 +88,10 @@ class _MyClassState extends State<MyClass> {
                       width: double.infinity,
                     ),
                   ),
-                  TransactionList(_transactions)
+                  Container(
+                      child: TransactionList(_transactions),
+
+                  )
                 ],
               ),
             )),
