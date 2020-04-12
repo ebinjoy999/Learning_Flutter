@@ -1,4 +1,5 @@
 import 'package:first_app/expense/model/transaction.dart';
+import 'package:first_app/expense/widget/chart.dart';
 import 'package:first_app/expense/widget/new_transactions.dart';
 import 'package:first_app/expense/widget/transactionlist.dart';
 import 'package:first_app/expense/widget/user_transactions.dart';
@@ -89,7 +90,12 @@ class _MyClassState extends State<MyClass> {
                     ),
                   ),
                   Container(
-                      child: TransactionList(_transactions),
+                      child: Column(
+                        children: <Widget>[
+                          Chart(_recentTransactions),
+                          TransactionList(_transactions),
+                        ],
+                      ),
 
                   )
                 ],
@@ -97,6 +103,14 @@ class _MyClassState extends State<MyClass> {
             )),
     );
 
+  }
+
+  List<Transaction> get _recentTransactions{
+    return _transactions.where((tx){
+       return tx.dateTime.isAfter(
+         DateTime.now().subtract(Duration(days: 7))
+       );
+    }).toList();
   }
 
   void _startAddNewTransaction(BuildContext ct){
