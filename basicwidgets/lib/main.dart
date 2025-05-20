@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/color_button.dart';
+import 'components/theme_button.dart';
 import 'constants.dart';
 
 void main() {
@@ -7,13 +9,31 @@ void main() {
   runApp( Yummy());
 }
 
-class Yummy extends StatelessWidget {
-  ThemeMode themeMode = ThemeMode.light;
-  ColorSelection colorSelection = ColorSelection.pink;
+class Yummy extends StatefulWidget {
 
   Yummy({super.key});
 
-  // TODO: Add changeTheme above here
+  @override
+  State<Yummy> createState() => _YummyState();
+}
+
+class _YummyState extends State<Yummy> {
+  ThemeMode themeMode = ThemeMode.dark;
+
+  ColorSelection colorSelection = ColorSelection.pink;
+
+  void changeThemeMode(bool useLightMode) {
+    setState(() {
+      themeMode = useLightMode
+          ? ThemeMode.light //
+          : ThemeMode.dark;
+    });
+  }
+  void changeColor(int value) {
+    setState(() {
+      colorSelection = ColorSelection.values[value];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +59,15 @@ class Yummy extends StatelessWidget {
       // 4
       home: Scaffold(
         appBar: AppBar(
-          // TODO: Add action buttons
+          actions: [
+            ThemeButton(
+              changeThemeMode: changeThemeMode,
+            ),
+            ColorButton(
+              changeColor: changeColor,
+              colorSelected: colorSelection,
+            ),
+          ],
           elevation: 4.0,
           title: const Text(
             appTitle,
