@@ -1,5 +1,5 @@
 name: yummy
-description: Yummy is a food platform for customers to order food from a wide variety of restaruants
+description: Yummy is a food platform for customers to order food from a wide variety of restaurants
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  uuid: ^4.3.3
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

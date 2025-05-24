@@ -4,16 +4,22 @@ import 'package:yummy/screen/explore_page.dart';
 import 'components/color_button.dart';
 import 'components/theme_button.dart';
 import 'constants.dart';
+import 'models/cart_manager.dart';
+import 'models/order_manager.dart';
 
 class Home extends StatefulWidget {
   const Home({
     super.key,
+    required this.cartManager,
+    required this.ordersManager,
     required this.changeTheme,
     required this.changeColor,
     required this.colorSelected,
     required this.appTitle,
   });
 
+  final CartManager cartManager;
+  final OrderManager ordersManager;
   final ColorSelection colorSelected;
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
@@ -46,7 +52,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      ExplorePage(),
+      ExplorePage(
+        cartManager: widget.cartManager,
+        orderManager: widget.ordersManager,
+      ),
       const Center(
         child: Text(
           'Order Page',
