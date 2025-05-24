@@ -16,3 +16,13 @@ enum ColorSelection {
   final String label;
   final Color color;
 }
+
+
+enum YummyTab {
+  home(0),
+  orders(1),
+  account(2);
+
+  const YummyTab(this.value);
+  final int value;
+}
